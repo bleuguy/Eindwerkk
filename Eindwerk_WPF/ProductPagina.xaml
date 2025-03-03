@@ -1,0 +1,137 @@
+﻿<Page x:Class="Eindwerk_WPF.ProductPagina"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Eindwerk_WPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ProductPagina">
+
+    <Grid Background="DarkGray"  >
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+
+
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="240"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="20"/>
+
+            </Grid.RowDefinitions>
+            <Image  x:Name="ImageProduct1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="280" Grid.Row="1" Grid.Column="1" Source="https://marketplace.canva.com/EAFZk58D9Lk/1/0/900w/canva-black-white-modern-coming-soon-instagram-story-V71tGs0HuEw.jpg"/>
+            <TextBlock  x:Name="Prijs1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="ok" FontWeight="Bold" FontSize="18" Grid.Row="2" Grid.Column="1"/>
+            <Button Content="Add To Cart!" Width="120" Height="40" Grid.Column="1" Grid.Row="3" Click="AddToCart_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#FF6A6A6A"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="BorderBrush" Value="#FF505050"/>
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="Border" 
+                                        CornerRadius="10" 
+                                        Background="{TemplateBinding Background}" 
+                                        BorderBrush="{TemplateBinding BorderBrush}" 
+                                        BorderThickness="{TemplateBinding BorderThickness}">
+                                        <ContentPresenter HorizontalAlignment="Center" 
+                                                      VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="Border" Property="Background" Value="#FF8A8A8A"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter TargetName="Border" Property="Background" Value="#FF4A4A4A"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            
+            <Image x:Name="ImageProduct2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="280" Grid.Row="1" Grid.Column="2" Source="https://marketplace.canva.com/EAFZk58D9Lk/1/0/900w/canva-black-white-modern-coming-soon-instagram-story-V71tGs0HuEw.jpg"/>
+            <TextBlock  x:Name="Prijs2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="ok" FontWeight="Bold" FontSize="18" Grid.Row="2" Grid.Column="2"/>
+            <Button Content="Add To Cart!" Width="120" Height="40" Grid.Column="2" Grid.Row="3" Click="AddToCart_Click2">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#FF6A6A6A"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="BorderBrush" Value="#FF505050"/>
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="Border" 
+                                        CornerRadius="10" 
+                                        Background="{TemplateBinding Background}" 
+                                        BorderBrush="{TemplateBinding BorderBrush}" 
+                                        BorderThickness="{TemplateBinding BorderThickness}">
+                                        <ContentPresenter HorizontalAlignment="Center" 
+                                                      VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="Border" Property="Background" Value="#FF8A8A8A"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter TargetName="Border" Property="Background" Value="#FF4A4A4A"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Image x:Name="ImageProduct3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="280" Grid.Row="1" Grid.Column="3" Source="https://marketplace.canva.com/EAFZk58D9Lk/1/0/900w/canva-black-white-modern-coming-soon-instagram-story-V71tGs0HuEw.jpg"/>
+            <TextBlock  x:Name="Prijs3" HorizontalAlignment="Center" VerticalAlignment="Center" Text="ok" FontWeight="Bold" FontSize="18" Grid.Row="2" Grid.Column="3"/>
+            <Button Content="Add To Cart!" Width="120" Height="40" Grid.Column="3" Grid.Row="3" Click="AddToCart_Click3">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#FF6A6A6A"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="BorderBrush" Value="#FF505050"/>
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="Border" 
+                                        CornerRadius="10" 
+                                        Background="{TemplateBinding Background}" 
+                                        BorderBrush="{TemplateBinding BorderBrush}" 
+                                        BorderThickness="{TemplateBinding BorderThickness}">
+                                        <ContentPresenter HorizontalAlignment="Center" 
+                                                      VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="Border" Property="Background" Value="#FF8A8A8A"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter TargetName="Border" Property="Background" Value="#FF4A4A4A"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+        
+    </Grid>
+</Page>

@@ -1,0 +1,45 @@
+﻿<Window x:Class="Eindwerk_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Eindwerk_WPF"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="#999999">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Menu -->
+        <Border BorderBrush="DarkGray" BorderThickness="0,0,0,2">
+        <StackPanel Orientation="Horizontal" Background="#C0C0C0" Grid.Row="0">
+            <!-- HOME -->
+            <Button Margin="10" Click="NavigateToHome" BorderBrush="Transparent" Background="#C0C0C0">
+                <materialDesign:PackIcon Kind="Home" Width="24" Height="24"/>
+            </Button>
+
+            <!-- PRODUCTEN -->
+                <Button Margin="10" Click="NavigateToProducten" BorderBrush="Transparent" Background="#C0C0C0">
+                <materialDesign:PackIcon Kind="TshirtCrew" Width="24" Height="24"/>
+            </Button>
+
+            <!--ACCOUNT-->
+            <Button Margin="10" Click="NavigateToAccount" BorderBrush="Transparent" Background="#C0C0C0"> 
+                <materialDesign:PackIcon Kind="Account" Width="24" Height="24"/>
+            </Button>
+
+            <!-- SHOPPING CART -->
+            <Button Margin="10" HorizontalAlignment="Right" Click="NavigateToCart" BorderBrush="Transparent" Background="#C0C0C0">                
+                <materialDesign:PackIcon Kind="Cart" Width="24" Height="24"/>                
+            </Button>
+        </StackPanel>
+        </Border>
+
+
+        <!-- MAINFRAME -->
+        <Frame x:Name="MainFrame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>
