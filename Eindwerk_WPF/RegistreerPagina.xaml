@@ -8,7 +8,60 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="RegistreerPagina">
 
-    <Grid>
-        
+    <Grid Background="#999999">
+        <StackPanel Margin="20" HorizontalAlignment="Center">
+
+            <Label Content="Naam:"/>
+            <TextBox x:Name="NaamTextBox" Width="300" Margin="0,0,0,10"/>
+
+            <Label Content="Voornaam:"/>
+            <TextBox x:Name="VoornaamTextBox" Width="300" Margin="0,0,0,10"/>
+
+            <Label Content="Email:"/>
+            <TextBox x:Name="EmailTextBox" Width="300" Margin="0,0,0,10"/>
+
+            <Label Content="Telefoonnummer:"/>
+            <TextBox x:Name="TelefoonnummerTextBox" Width="300" Margin="0,0,0,10"/>
+
+            <Label Content="Geboortedatum:"/>
+            <DatePicker x:Name="GeboortedatumDatePicker" Width="300" Margin="0,0,0,10"/>
+
+            <Label Content="Wachtwoord:"/>
+            <PasswordBox x:Name="WachtwoordPasswordBox" Width="300" Margin="0,0,0,20"/>
+
+            <Button Content="Registreer" Margin="0,10,0,0" FontWeight="Bold" Click="RegistreerButton_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#FF6A6A6A"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="BorderBrush" Value="#FF505050"/>
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="Border" 
+            CornerRadius="10" 
+            Background="{TemplateBinding Background}" 
+            BorderBrush="{TemplateBinding BorderBrush}" 
+            BorderThickness="{TemplateBinding BorderThickness}">
+                                        <ContentPresenter HorizontalAlignment="Center" 
+                          VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="Border" Property="Background" Value="#FF8A8A8A"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter TargetName="Border" Property="Background" Value="#FF4A4A4A"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <TextBlock x:Name="ErrorMessageTextBlock" Foreground="Red" Margin="0,10,0,0"/>
+        </StackPanel>
     </Grid>
 </Page>

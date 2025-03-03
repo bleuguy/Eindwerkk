@@ -55,6 +55,11 @@ namespace Eindwerk_Domain.Business.Norm
         {
             return VerzendMethodeRepository.VerzendMethodeLijst;
         }
+        public void AddGebruiker(Gebruiker gebruiker)
+        {
+            _persistController.AddGebruiker(gebruiker);
+        }
+
         public static class LoginChecker
         {
             static LoginChecker()
@@ -64,10 +69,10 @@ namespace Eindwerk_Domain.Business.Norm
             public static bool Succes { get; set; }
         }
 
-        public void ControleerGebruiker(string email, string wachtwoord)
+        public bool ControleerGebruiker(string email, string wachtwoord)
         {
-            _persistController.ControleerGebruiker(email, wachtwoord);
-            GebruikerRepository.GebruikerLijst = _persistController.GetGebruiker();
+            return _persistController.ControleerGebruiker(email, wachtwoord);
+            //GebruikerRepository.GebruikerLijst = _persistController.GetGebruiker();
         }
 
     }

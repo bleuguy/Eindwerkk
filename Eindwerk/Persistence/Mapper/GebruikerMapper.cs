@@ -45,7 +45,31 @@ namespace Eindwerk_Domain.Persistence.Mapper
             conn.Close();
             return returnList;
         }
+        public void AddGebruikerToDB(Gebruiker gebruiker)
+        {
+            using (MySqlConnection conn = new MySqlConnection(_connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "INSERT INTO eindwerk.gebruiker (naam, voornaam, email, telefoonnummer, geboortedatum, wachtwoord) " +
+                                   "VALUES (@Naam, @Voornaam, @Email, @Telefoonnummer, @Geboortedatum, @Wachtwoord)";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@Naam", gebruiker.Naam);
+                    cmd.Parameters.AddWithValue("@Voornaam", gebruiker.Voornaam);
+                    cmd.Parameters.AddWithValue("@Email", gebruiker.Email);
+                    cmd.Parameters.AddWithValue("@Telefoonnummer", gebruiker.Telefoonnummer);
+                    cmd.Parameters.AddWithValue("@Geboortedatum", gebruiker.Geboortedatum);
+                    cmd.Parameters.AddWithValue("@Wachtwoord", gebruiker.Wachtwoord);
 
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"DatabaseFout: {ex.Message}");
+                }
+            }
+        }
 
             public bool ControleerGebruiker(string email, string wachtwoord)
             {
@@ -55,12 +79,13 @@ namespace Eindwerk_Domain.Persistence.Mapper
                     try
                     {
                         conn.Open();
-                        string query = "SELECT COUNT(*) FROM gebruiker WHERE email = @Email AND wachtwoord = @Wachtwoord";
+                        string query = "SELECT COUNT(*) FROM eindwerk.gebruiker WHERE email = @Email AND wachtwoord = @Wachtwoord";
                         MySqlCommand cmd = new MySqlCommand(query, conn);
                         cmd.Parameters.AddWithValue("@Email", email);
                         cmd.Parameters.AddWithValue("@Wachtwoord", wachtwoord);
                         int count = Convert.ToInt32(cmd.ExecuteScalar());
                         isGeldig = count > 0;
+                       
                     }
                     catch (Exception ex)
                     {

@@ -31,6 +31,11 @@ namespace Eindwerk_Domain.Persistence
             GebruikerMapper mapper = new GebruikerMapper();
             return mapper.GetGebruikerFromDB();
         }
+        public void AddGebruiker(Gebruiker gebruiker)
+        {
+            GebruikerMapper gebruikerMapper = new GebruikerMapper();
+            gebruikerMapper.AddGebruikerToDB(gebruiker);
+        }
         public List<OrderInformatie> GetOrderInformatie()
         {
             OrderInformatieMapper mapper = new OrderInformatieMapper();
@@ -56,10 +61,15 @@ namespace Eindwerk_Domain.Persistence
             VerzendMethodeMapper mapper = new VerzendMethodeMapper();
             return mapper.GetVerzendMethodeFromDB();
         }
-        public void ControleerGebruiker(string email, string wachtwoord)
+
+
+        public bool ControleerGebruiker(string email, string wachtwoord)
         {
             GebruikerMapper mapper = new GebruikerMapper();
-            mapper.ControleerGebruiker(email, wachtwoord);
+            return mapper.ControleerGebruiker(email, wachtwoord);
         }
+
+
+
     }
 }

@@ -41,7 +41,7 @@ namespace Eindwerk_WPF
         {
             string email = txtUsernameBox.Text.Trim();
             string wachtwoord = txtPasswordBox.Password.Trim();
-            _controller = new Controller();
+            //_controller = new Controller();
 
 
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(wachtwoord))
@@ -50,15 +50,22 @@ namespace Eindwerk_WPF
                 return;
             }
 
-            _controller.ControleerGebruiker(email, wachtwoord);
-            if (Controller.ControleerGebruiker(email, wachtwoord))
+            if (_controller.ControleerGebruiker(email, wachtwoord))
             {
-                MessageBox.Show("Successvol ingelogd!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                Controller.LoginChecker.Succes = true;
+                // Proceed with successful login actions
+                MessageBox.Show("Login successful!");
                 this.NavigationService.Navigate(new HomePagina());
             }
+
+            //_controller.ControleerGebruiker(email, wachtwoord);
+            //else if (_controller.ControleerGebruiker(email, wachtwoord))
+            //{
+            //    MessageBox.Show("Successvol ingelogd!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            //    Controller.LoginChecker.Succes = true;
+            //    this.NavigationService.Navigate(new HomePagina());
+            //}
             else
-            {
+            {   
                 MessageBox.Show("Ongeldig e-mailadres of wachtwoord.");
             }
         }
